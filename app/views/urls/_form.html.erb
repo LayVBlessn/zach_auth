@@ -1,0 +1,4 @@
+<%= form_with model: @url do |f|%>
+  <%= f.text_field :url, required: true, placeholder: "Введите URL"%>
+  <%= f.submit "Сократить!"%>
+<%end%>

@@ -1,0 +1,36 @@
+
+<%= form_with model: @user do |f| %>
+
+  <div class="mb-3 row">
+    <div class="col-sm-3 col-form-label">
+      <%= f.label 'Логин' %>
+    </div>
+
+    <div class="col-sm-4">
+      <%= f.text_field :login, class: 'form-control form-control-sm' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-3 col-form-label">
+      <%= f.label 'Пароль' %>
+    </div>
+
+    <div class="col-sm-4">
+      <%= f.password_field :password, class: 'form-control form-control-sm' %>
+    </div>
+  </div>
+
+  <div class="mb-3 row">
+    <div class="col-sm-3 col-form-label">
+      <%= f.label 'Подтверждение пароля' %>
+    </div>
+
+    <div class="col-sm-4">
+      <%= f.password_field :password_confirmation, class: 'form-control form-control-sm' %>
+    </div>
+  </div>
+  <div class="reg_sub">
+  <%= f.submit "Зарегистрироваться", class: 'btn btn-primary btn-sm' %>
+  </div>
+<% end %>

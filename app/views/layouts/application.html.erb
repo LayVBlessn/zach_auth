@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>URLShortener</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <%= stylesheet_link_tag 'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_pack_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <script>
+
+
+    </script>
+  
+  </head>
+
+  <body>
+
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand " href="/urls">
+        <img src="https://play-lh.googleusercontent.com/amhoP6yQipDObMmcDSzDImeiNhHqUws9bOj6zClBJLvPjGP6O0iRrnaj2bed9XAngw" width="30" height="30" alt="Logo">
+        <span class="urlshortener">Shortener</span>
+      </a>
+
+    <ul class="nav col-12 col-lg-auto mb-2 mb-md-0">
+          <% if user_signed_in? %>
+            <li>
+              <a class="nav-link urlshortener" href="/update">
+                <span class="profile_name urlshortener">
+                  <%= current_user.login%>
+                </span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link urlshortener" href="/session">
+                Выйти
+              </a>
+            </li>  
+          <% else %>
+            <li>
+              <a class="nav-link urlshortener" href="/users">
+                <span class="profile_status">
+                  Регистрация
+                </span>
+              </a>
+            </li>
+            <li>
+              <a class="nav-link urlshortener" href="/sessions">
+                <span>
+                  Войти
+                </span>
+              </a>
+            </li>
+
+          <% end %>
+        </ul>
+
+
+    </nav>
+
+    <nav class="navbar fixed-bottom navbar-expand-lg navbar-dark bg-dark">
+      <a class="navbar-brand nav-link" href="https://vk.com/bmaximovich25" target="_blank"><span class="urlshortener">&copy;Bogdan Myakin <%=Time.now.year%></span></a>
+    </nav>
+    
+
+    <main>
+    <%= yield %>
+    </main>
+  </body>
+</html>
